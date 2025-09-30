@@ -34,7 +34,7 @@
         <!-- 高德API Key配置 -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="YOUR_API_KEY_HERE" />
+            android:value="8650dd235a35639a39545b167178faa6" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -51,6 +51,12 @@
             android:name=".MapActivity"
             android:exported="false"
             android:label="高德地图"
+            android:theme="@style/Theme.GaodeGuide" />
+            
+        <activity
+            android:name=".SimpleLiteMapActivity"
+            android:exported="false"
+            android:label="轻量版地图"
             android:theme="@style/Theme.GaodeGuide" />
     </application>
 

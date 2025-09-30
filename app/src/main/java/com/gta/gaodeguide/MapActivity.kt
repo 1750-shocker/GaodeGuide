@@ -52,14 +52,15 @@ class MapActivity : ComponentActivity(), AMapLocationListener {
             // 设置地图类型
             map.mapType = AMap.MAP_TYPE_NORMAL
             
-            // 设置缩放控件
-            map.uiSettings.isZoomControlsEnabled = true
-            
-            // 设置指南针
-            map.uiSettings.isCompassEnabled = true
-            
-            // 设置比例尺
-            map.uiSettings.isScaleControlsEnabled = true
+            // 设置UI控件（轻量版SDK可能不支持所有控件）
+            try {
+                map.uiSettings?.isZoomControlsEnabled = true
+                map.uiSettings?.isCompassEnabled = true
+                map.uiSettings?.isScaleControlsEnabled = true
+            } catch (e: Exception) {
+                // 轻量版可能不支持某些UI控件
+                e.printStackTrace()
+            }
             
             // 设置默认位置（北京）
             val beijing = LatLng(39.906901, 116.397972)
@@ -73,7 +74,7 @@ class MapActivity : ComponentActivity(), AMapLocationListener {
             Manifest.permission.ACCESS_COARSE_LOCATION
         )
         
-        val needRequest = permissions.filter {
+        val needRequest = permissions.toList().filter {
             ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED
         }
         
@@ -112,8 +113,13 @@ class MapActivity : ComponentActivity(), AMapLocationListener {
                 val latLng = LatLng(it.latitude, it.longitude)
                 aMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
                 
-                // 显示我的位置
-                aMap?.isMyLocationEnabled = true
+                // 显示我的位置（轻量版可能不支持）
+                try {
+                    aMap?.isMyLocationEnabled = true
+                } catch (e: Exception) {
+                    // 轻量版可能不支持我的位置显示
+                    e.printStackTrace()
+                }
             } else {
                 // 定位失败
                 println("定位失败: ${it.errorInfo}")
