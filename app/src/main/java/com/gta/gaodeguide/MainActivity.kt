@@ -48,6 +48,18 @@ fun MainScreen(modifier: Modifier = Modifier) {
         
         Button(
             onClick = {
+                val intent = Intent(context, LiteMapActivity::class.java)
+                context.startActivity(intent)
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        ) {
+            Text("完整功能地图")
+        }
+        
+        Button(
+            onClick = {
                 val intent = Intent(context, SimpleLiteMapActivity::class.java)
                 context.startActivity(intent)
             },
@@ -55,23 +67,23 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         ) {
-            Text("打开地图")
+            Text("简单地图（反射版）")
         }
         
         Button(
             onClick = {
-                // 可以添加其他功能
+                // 可以添加搜索功能页面
             },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         ) {
-            Text("搜索地点")
+            Text("地点搜索")
         }
         
         Button(
             onClick = {
-                // 可以添加其他功能
+                // 可以添加路线规划页面
             },
             modifier = Modifier
                 .fillMaxWidth()

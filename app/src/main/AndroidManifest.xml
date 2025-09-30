@@ -35,6 +35,7 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="8650dd235a35639a39545b167178faa6" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -48,9 +49,15 @@
         </activity>
         
         <activity
+            android:name=".LiteMapActivity"
+            android:exported="false"
+            android:label="完整功能地图"
+            android:theme="@style/Theme.GaodeGuide" />
+            
+        <activity
             android:name=".SimpleLiteMapActivity"
             android:exported="false"
-            android:label="高德地图"
+            android:label="简单地图"
             android:theme="@style/Theme.GaodeGuide" />
     </application>
 
