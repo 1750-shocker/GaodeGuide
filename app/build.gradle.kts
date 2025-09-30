@@ -53,6 +53,8 @@ android {
 }
 
 dependencies {
+    // 高德SDK - 添加libs目录下的所有jar包
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

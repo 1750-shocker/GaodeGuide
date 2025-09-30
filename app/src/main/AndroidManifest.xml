@@ -2,7 +2,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- 高德SDK所需权限 -->
+    <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    
+    <!-- 定位权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    
+    <!-- 存储权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    
+    <!-- 电话状态权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
+        android:name=".GaodeApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -11,6 +30,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GaodeGuide">
+        
+        <!-- 高德API Key配置 -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="YOUR_API_KEY_HERE" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -22,6 +46,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name=".MapActivity"
+            android:exported="false"
+            android:label="高德地图"
+            android:theme="@style/Theme.GaodeGuide" />
     </application>
 
 </manifest>
