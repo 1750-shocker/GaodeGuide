@@ -48,15 +48,9 @@
         </activity>
         
         <activity
-            android:name=".MapActivity"
-            android:exported="false"
-            android:label="高德地图"
-            android:theme="@style/Theme.GaodeGuide" />
-            
-        <activity
             android:name=".SimpleLiteMapActivity"
             android:exported="false"
-            android:label="轻量版地图"
+            android:label="高德地图"
             android:theme="@style/Theme.GaodeGuide" />
     </application>
 
